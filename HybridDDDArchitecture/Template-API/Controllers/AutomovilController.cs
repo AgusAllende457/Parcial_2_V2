@@ -57,13 +57,13 @@ namespace Controllers
 
             public async Task<IActionResult> GetAll()
             {
-                // 1. Crear la instancia del Query sin parámetros
+                
                 var query = new GetAllAutomovilesQuery();
 
-                // 2. Enviar el Query al Bus. El resultado es la lista directa (IList<AutomovilDto>).
+               
                 var entities = await _commandQueryBus.Send(query);
 
-                // 3. Retornar el resultado HTTP 200 con la lista
+         
                 return Ok(entities);
             }
 

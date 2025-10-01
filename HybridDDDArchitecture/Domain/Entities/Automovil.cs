@@ -27,13 +27,9 @@ namespace Domain.Entities
             Color = color;
             Fabricacion = fabricacion;
             NumeroMotor = numeroMotor;
-            NumeroChasis = GenerarNumeroChasis(modelo, color);
+            NumeroChasis = numeroChasis;
         }
-        private string GenerarNumeroChasis(string modelo, string color)
-        {
-            var sufijo = Guid.NewGuid().ToString("N").Substring(0, 6);
-            return $"CHS-{modelo.Substring(0, 3).ToUpper()}-{color.Substring(0, 3).ToUpper()}-{DateTime.Now:yyyyMMddHHmmss}-{sufijo}";
-        }
+
         public void UpdateColor(string newColor)
         {
             if (!string.IsNullOrEmpty(newColor))
