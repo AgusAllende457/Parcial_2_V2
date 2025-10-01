@@ -34,6 +34,21 @@ namespace Domain.Entities
             var sufijo = Guid.NewGuid().ToString("N").Substring(0, 6);
             return $"CHS-{modelo.Substring(0, 3).ToUpper()}-{color.Substring(0, 3).ToUpper()}-{DateTime.Now:yyyyMMddHHmmss}-{sufijo}";
         }
+        public void UpdateColor(string newColor)
+        {
+            if (!string.IsNullOrEmpty(newColor))
+            {
+                Color = newColor;
+            }
+        }
+
+        public void UpdateNumeroMotor(string newNumeroMotor)
+        {
+            if (!string.IsNullOrEmpty(newNumeroMotor))
+            {
+                NumeroMotor = newNumeroMotor;
+            }
+        }
     }
 
 }

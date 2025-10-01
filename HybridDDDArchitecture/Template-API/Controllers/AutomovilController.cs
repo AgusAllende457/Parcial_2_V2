@@ -1,5 +1,6 @@
 ﻿using Application.UseCases.Automovil.Commands.CreateAutomovil;
 using Application.UseCases.Automovil.Commands.DeleteAutomovil;
+using Application.UseCases.Automovil.Commands.UpdateAutomovil;
 using Application.UseCases.DummyEntity.Commands.DeleteDummyEntity;
 using Application.UseCases.DummyEntity.Commands.UpdateDummyEntity;
 using Application.UseCases.DummyEntity.Queries.GetAllDummyEntities;
@@ -34,5 +35,20 @@ namespace Controllers
 
             return NoContent();
         }
+
+        [HttpPut("api/v1/[controller]/{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateAutomovilCommand command)
+        {
+
+            command.AutomovilId = id;
+
+            bool updated = await _commandQueryBus.Send(command);
+
+            if (!updated)
+                return NotFound(); 
+
+            return NoContent(); 
+        }
+
     }
 }
