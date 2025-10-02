@@ -25,7 +25,12 @@ namespace Controllers
         [HttpPost("api/v1/[controller]")]
         public async Task<IActionResult> Create(CrearAutomovilCommand command)
         {
-            if (command is null) return BadRequest();
+            // Model Validation de .NET Core: verifica los Data Annotations
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Retorna 400 con los errores de validación
+            }
+
             var id = await _commandQueryBus.Send(command);
             return Created($"api/v1/[controller]/{id}", new { Id = id });
         }

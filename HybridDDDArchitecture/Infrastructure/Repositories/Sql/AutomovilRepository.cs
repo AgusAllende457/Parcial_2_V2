@@ -26,13 +26,23 @@ namespace Infrastructure.Repositories.Sql
 
         public async Task<Automovil> FindByChasisAsync(string chasis)
         {
-           
+
             string chasisLowerCase = chasis.ToLower();
 
             return await Query()
                          .Where(a => a.NumeroChasis.ToLower() == chasisLowerCase)
                          .FirstOrDefaultAsync();
         }
+        public void Remove(Domain.Entities.Automovil entity)
+        {
 
+            base.Context.Set<Automovil>().Remove(entity);
+        }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+           
+            return await base.Context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

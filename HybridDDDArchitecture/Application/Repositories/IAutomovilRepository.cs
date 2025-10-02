@@ -15,7 +15,12 @@ namespace Application.Repositories
 
         Task<Automovil> FindByChasisAsync(string chasis);
 
+
+
+        void Remove(Domain.Entities.Automovil entity);
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 
-
 }
+

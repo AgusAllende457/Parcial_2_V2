@@ -1,5 +1,5 @@
 ﻿using Application.DataTransferObjects;
-using Core.Application; // Asumo IRequestQuery está aquí
+using Core.Application;
 
 namespace Application.UseCases.Automovil.Queries.GetAllAutomoviles
 {
