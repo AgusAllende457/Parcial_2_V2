@@ -25,5 +25,13 @@ namespace Core.Application
             IMapper mapper = Instance;
             return mapper.Map<IEnumerable<T>>(input);
         }
+
+        public class AutomovilDto
+        {
+            public int Id { get; set; }
+            public string Marca { get; set; }
+            // ... otras propiedades
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace Controllers
     /// ya que el mismo proporciona una funcionalidad para estandarizar
     /// la respuesta de la Api Rest
     /// </summary>
-    [ApiController]
+    /*[ApiController]
     public class DummyEntityController(ICommandQueryBus commandQueryBus) : BaseController
     {
         private readonly ICommandQueryBus _commandQueryBus = commandQueryBus ?? throw new ArgumentNullException(nameof(commandQueryBus));
@@ -67,5 +67,5 @@ namespace Controllers
 
             return NoContent();
         }
-    }
+    }*/
 }

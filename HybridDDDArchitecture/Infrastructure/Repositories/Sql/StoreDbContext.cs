@@ -3,13 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.Sql
 {
-    /// <summary>
-    /// Contexto de almacenamiento en base de datos. Aca se definen los nombres de 
-    /// las tablas, y los mapeos entre los objetos
-    /// </summary>
+ 
     internal class StoreDbContext : DbContext
     {
         public DbSet<DummyEntity> DummyEntity { get; set; }
+        public DbSet<Automovil> Automoviles { get; set; }
 
         public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
@@ -27,6 +25,7 @@ namespace Infrastructure.Repositories.Sql
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DummyEntity>().ToTable("DummyEntity");
+            modelBuilder.Entity<Automovil>().ToTable("Automovil");
         }
     }
 }

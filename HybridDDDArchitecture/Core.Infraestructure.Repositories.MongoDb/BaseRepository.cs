@@ -75,5 +75,11 @@ namespace Core.Infraestructure.Repositories.MongoDb
             FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq("_id", id);
             Collection.ReplaceOne(filter, entity);
         }
+
+        public IQueryable<TEntity> Query()
+        {
+            throw new NotImplementedException("Query() no está implementado para MongoDb.");
+        }
+
     }
 }
